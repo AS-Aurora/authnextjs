@@ -1,4 +1,3 @@
-import { log } from "console";
 import mongoose from "mongoose";
 
 export async function connect() {
@@ -16,6 +15,5 @@ export async function connect() {
         })
     } catch (error) {
         console.log("Error connecting to database", error);
-        
     }
 }
