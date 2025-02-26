@@ -34,8 +34,8 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       host: "sandbox.smtp.mailtrap.io",
       port: 2525,
       auth: {
-        user: process.env.USER || "8e2621dcdca06f",
-        pass: process.env.PASS || "772dad8dbc154e",
+        user: process.env.USER,
+        pass: process.env.PASS,
       },
     });
 
@@ -47,7 +47,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
         <div style="max-width: 600px; margin: 0 auto;">
       <h1>${emailType === "VERIFY" ? "Verify your email" : "Reset your password"}</h1>
       <p>Click the link below to ${emailType === "VERIFY" ? "verify your email" : "reset your password"}:</p>
-      <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">
+      <a href="${process.env.DOMAIN}/${emailType === "VERIFY" ? "verifyemail" : "resetpassword"}?token=${hashedToken}">
         Click here
       </a>
       <p>Or copy and paste this link in your browser:</p>
