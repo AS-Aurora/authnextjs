@@ -24,7 +24,7 @@ const ResetPassword = () => {
 
         try {
             setLoading(true)
-            const response = await axios.post('/api/users/resetpassword', {token, newPassword})
+            const response = await axios.put('/api/users/resetpassword', {token, newPassword})
             setMessage("Password reset successful")
             console.log(response.data)
 
